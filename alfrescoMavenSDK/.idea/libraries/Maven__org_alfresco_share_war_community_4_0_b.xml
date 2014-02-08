@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.alfresco:share:war:community:4.0.b">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/alfresco/share/4.0.b/share-4.0.b-community.war!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/alfresco/share/4.0.b/share-4.0.b-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/alfresco/share/4.0.b/share-4.0.b-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
