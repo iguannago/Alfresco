@@ -1,0 +1,22 @@
+#java specific
+*.class
+target/
+
+#netbeans ignore personal stuff 
+nbproject/private/
+
+
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+#IntelliJ
+*.iml
+.idea/
+
+# alfresco
+alf_data_dev/
+
