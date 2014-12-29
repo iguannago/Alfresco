@@ -19,4 +19,8 @@ nbproject/private/
 
 # alfresco
 alf_data_dev/
-
+.bpmn/
+.settings/
+.project
+.classpath
+run.sh
