@@ -1,5 +1,33 @@
-<!-- Alfresco 5.0.a share-config-custom.xml sample --> 
+<!-- Alfresco 5.0.a share-config-custom.xml sample -->
 <alfresco-config>
+
+   <config evaluator="string-compare" condition="activiti$helloWorldUI">
+      <forms>
+         <form>
+            <field-visibility>
+               <show id="bpm:workflowDescription"/>
+               <show id="packageItems"/>
+               <show id="scwf:helloName"/>
+               <show id="transitions"/>
+               <show id="bpm:status"/>
+            </field-visibility>
+            <appearance>
+               <set id="" appearance="title" label-id="workflow.set.general"/>
+               <set id="items" appearance="title" label-id="workflow.set.items"/>
+               <set id="progress" appearance="title" label-id="workflow.set.task.progress"/>
+               <set id="other" appearance="title" label-id="workflow.set.other"/>
+               <field id="bpm:workflowDescription" label-id="workflow.field.message">
+                  <control template="/org/alfresco/components/form/controls/textarea.ftl">
+                     <control-param name="style">width: 95%</control-param>
+                  </control>
+               </field>
+               <field id="packageItems" set="items"/>
+               <field id="scwf:helloName" set="other"/>
+               <field id="bpm:status" set="progress"/>
+            </appearance>
+         </form>
+      </forms>
+   </config>
 
    <!-- Global config section -->
    <config replace="true">
@@ -7,26 +35,26 @@
          <!--
             Developer debugging setting to turn on DEBUG mode for client scripts in the browser
          -->
-         <client-debug>false</client-debug>
+         <client-debug>true</client-debug>
 
          <!--
             LOGGING can always be toggled at runtime when in DEBUG mode (Ctrl, Ctrl, Shift, Shift).
             This flag automatically activates logging on page load.
          -->
-         <client-debug-autologging>false</client-debug-autologging>
+         <client-debug-autologging>true</client-debug-autologging>
       </flags>
    </config>
-   
+
    <config evaluator="string-compare" condition="WebFramework">
       <web-framework>
          <!-- SpringSurf Autowire Runtime Settings -->
-         <!-- 
+         <!--
               Developers can set mode to 'development' to disable; SpringSurf caches,
               FreeMarker template caching and Rhino JavaScript compilation.
          -->
          <autowire>
             <!-- Pick the mode: "production" or "development" -->
-            <mode>production</mode>
+            <mode>development</mode>
          </autowire>
 
          <!-- Allows extension modules with <auto-deploy> set to true to be automatically deployed -->
@@ -115,13 +143,13 @@
             This is a relatively expensive operation, so should be set to "false" for Repositories with broad folder structures.
          -->
          <evaluate-child-folders>false</evaluate-child-folders>
-         
+
          <!--
             Optionally limit the number of folders shown in treeview throughout Share.
          -->
          <maximum-folder-count>1000</maximum-folder-count>
-         
-         <!--  
+
+         <!--
             Default timeout in milliseconds for folder Tree component to recieve response from Repository
          -->
          <timeout>7000</timeout>
@@ -181,7 +209,7 @@
 
          <type name="cm:folder">
          </type>
- 
+
          <type name="trx:transferTarget">
             <subtype name="trx:fileTransferTarget" />
          </type>
@@ -277,7 +305,7 @@
             This is a relatively expensive operation, so should be set to "false" for Repositories with broad folder structures.
          -->
          <evaluate-child-folders>false</evaluate-child-folders>
-         
+
          <!--
             Optionally limit the number of folders shown in treeview throughout Share.
          -->
@@ -289,7 +317,7 @@
       -->
       <visible>true</visible>
    </config>
-   
+
    <!-- Kerberos settings -->
    <!-- To enable kerberos rename this condition to "Kerberos" -->
    <config evaluator="string-compare" condition="KerberosDisabled" replace="true">
@@ -355,7 +383,7 @@
             <basic-auth>true</basic-auth>
             <identity>user</identity>
          </endpoint>
-         
+
          <endpoint>
             <id>activiti-admin</id>
             <name>Activiti Admin UI - user access</name>
@@ -367,7 +395,7 @@
       </remote>
    </config>
 
-   <!-- 
+   <!--
         Overriding endpoints to reference an Alfresco server with external SSO enabled
         NOTE: If utilising a load balancer between web-tier and repository cluster, the "sticky
               sessions" feature of your load balancer must be used.
@@ -376,9 +404,9 @@
         *Optional* keystore contains SSL client certificate + trusted CAs.
         Used to authenticate share to an external SSO system such as CAS
         Remove the keystore section if not required i.e. for NTLM.
-        
+
         NOTE: For Kerberos SSO rename the "KerberosDisabled" condition above to "Kerberos"
-        
+
         NOTE: For external SSO, switch the endpoint connector to "AlfrescoHeader" and set
               the userHeader to the name of the HTTP header that the external SSO
               uses to provide the authenticated user name.
@@ -391,14 +419,14 @@
              <type>pkcs12</type>
              <password>alfresco-system</password>
          </keystore>
-         
+
          <connector>
             <id>alfrescoCookie</id>
             <name>Alfresco Connector</name>
             <description>Connects to an Alfresco instance using cookie-based authentication</description>
             <class>org.alfresco.web.site.servlet.SlingshotAlfrescoConnector</class>
          </connector>
-         
+
          <connector>
             <id>alfrescoHeader</id>
             <name>Alfresco Connector</name>
@@ -419,5 +447,5 @@
       </remote>
    </config>
    -->
-   
+
 </alfresco-config>
