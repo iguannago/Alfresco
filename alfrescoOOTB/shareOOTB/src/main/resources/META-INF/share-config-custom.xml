@@ -25,7 +25,7 @@
          -->
          <autowire>
             <!-- Pick the mode: "production" or "development" -->
-            <mode>development</mode>
+            <mode>production</mode>
          </autowire>
 
       </web-framework>
