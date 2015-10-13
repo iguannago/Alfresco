@@ -15,17 +15,17 @@
         <version>2.1.0</version>
     </parent>
 
-    <!-- 
+    <!--
        SDK properties have sensible defaults in the SDK parent,
        but you can override the properties below to use another version.
        For more available properties see the alfresco-sdk-parent POM.
        -->
     <properties>
         <!-- The following are default values for data location, Alfresco Community version, and Records Management Module version.
-             Uncomment if you need to change (Note. current default version for Enterprise edition is 5.0.1)
-          <alfresco.version>5.0.d</alfresco.version>
-          <alfresco.rm.version>2.3</alfresco.rm.version>
-          <alfresco.data.location>alf_data_dev</alfresco.data.location> -->
+             Uncomment if you need to change (Note. current default version for Enterprise edition is 5.0.1)-->
+          <alfresco.version>5.0.1</alfresco.version>
+          <!--<alfresco.rm.version>2.3</alfresco.rm.version>-->
+          <!--<alfresco.data.location>alf_data_dev</alfresco.data.location> -->
 
         <!-- This control the root logging level for all apps uncomment and change, defaults to WARN
             <app.log.root.level>WARN</app.log.root.level>
@@ -79,8 +79,8 @@
              -->
             <id>run</id>
             <properties>
-                <!-- While running in rapid dev mode with -Prun, we don't want amp web resources 
-                    to be added to the war, so we can load them directly from the AMP project (see 
+                <!-- While running in rapid dev mode with -Prun, we don't want amp web resources
+                    to be added to the war, so we can load them directly from the AMP project (see
                     runner/tomcat/context-*.xml for more details) -->
                 <maven.alfresco.includeWebResources>false</maven.alfresco.includeWebResources>
             </properties>

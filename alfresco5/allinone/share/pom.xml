@@ -20,6 +20,22 @@
     </properties>
 
     <dependencies>
+
+        <!-- Pearson dependencies -->
+        <dependency>
+            <groupId>com.hcl.ecm</groupId>
+            <artifactId>custom-lifecycle-share</artifactId>
+            <version>5.0.1.1.3.2.1-SNAPSHOT</version>
+            <type>amp</type>
+        </dependency>
+        <dependency>
+            <groupId>com.hcl.ecm</groupId>
+            <artifactId>pearson-subscription-master-share</artifactId>
+            <version>5.0.1.1.3.2.0-SNAPSHOT</version>
+            <type>amp</type>
+        </dependency>
+
+        <!-- Alfresco dependencies -->
         <dependency>
             <groupId>${alfresco.groupId}</groupId>
             <artifactId>${alfresco.share.artifactId}</artifactId>
@@ -50,10 +66,10 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <!-- Here is can control the order of overlay of your (WAR, AMP, etc.) dependencies
-                        | NOTE: At least one WAR dependency must be uncompressed first 
-                        | NOTE: In order to have a dependency effectively added to the WAR you need to 
-                        | explicitly mention it in the overlay section. 
-                        | NOTE: First-win resource strategy is used by the WAR plugin 
+                        | NOTE: At least one WAR dependency must be uncompressed first
+                        | NOTE: In order to have a dependency effectively added to the WAR you need to
+                        | explicitly mention it in the overlay section.
+                        | NOTE: First-win resource strategy is used by the WAR plugin
                         -->
                     <overlays>
                         <!-- The current project customizations -->
@@ -70,6 +86,16 @@
                         <overlay>
                             <groupId>${project.groupId}</groupId>
                             <artifactId>share-amp</artifactId>
+                            <type>amp</type>
+                        </overlay>
+                        <overlay>
+                            <groupId>com.hcl.ecm</groupId>
+                            <artifactId>custom-lifecycle-share</artifactId>
+                            <type>amp</type>
+                        </overlay>
+                        <overlay>
+                            <groupId>com.hcl.ecm</groupId>
+                            <artifactId>pearson-subscription-master-share</artifactId>
                             <type>amp</type>
                         </overlay>
                         <!-- Uncomment if you are using RM module -->
