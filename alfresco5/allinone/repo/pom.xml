@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.hcl.ecm</groupId>
             <artifactId>pearson-subscription-master-repo</artifactId>
-            <version>5.0.1.1.3.2.0-SNAPSHOT</version>
+            <version>5.0.1.1.3.2.1-SNAPSHOT</version>
             <type>amp</type>
         </dependency>
 
