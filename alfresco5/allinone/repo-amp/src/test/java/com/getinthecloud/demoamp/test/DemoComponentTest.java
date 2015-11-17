@@ -1,16 +1,19 @@
 package com.getinthecloud.demoamp.test;
 
 import com.getinthecloud.demoamp.DemoComponent;
+import com.tradeshift.test.remote.Remote;
+import com.tradeshift.test.remote.RemoteTestRunner;
 import org.alfresco.model.ContentModel;
 import org.alfresco.repo.security.authentication.AuthenticationUtil;
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.cmr.repository.NodeService;
 import org.apache.log4j.Logger;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -35,9 +38,9 @@ import static org.junit.Assert.assertNotNull;
  * @author Maurizio Pillitu
  *
  */
-//@RunWith(RemoteTestRunner.class)
+@RunWith(RemoteTestRunner.class)
 
-//@Remote(runnerClass=SpringJUnit4ClassRunner.class)
+@Remote(runnerClass=SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:alfresco/application-context.xml")
 public class DemoComponentTest {
 
@@ -52,12 +55,12 @@ public class DemoComponentTest {
     @Qualifier("NodeService")
     protected NodeService nodeService;
 
-    @Test@Ignore
+    @Test
     public void testWiring() {
         assertNotNull(demoComponent);
     }
 
-    @Test@Ignore
+    @Test
     public void testGetCompanyHome() {
     	AuthenticationUtil.setFullyAuthenticatedUser(ADMIN_USER_NAME);
         NodeRef companyHome = demoComponent.getCompanyHome();
@@ -67,7 +70,7 @@ public class DemoComponentTest {
         assertEquals("Company Home", companyHomeName);
     }
 
-    @Test@Ignore
+    @Test
     public void testChildNodesCount() {
     	AuthenticationUtil.setFullyAuthenticatedUser(ADMIN_USER_NAME);
         NodeRef companyHome = demoComponent.getCompanyHome();

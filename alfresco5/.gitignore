@@ -1,3 +1,4 @@
 
-*/*/*.log
-*/*.log
+*/*/*.log*
+*/*.log*
+allinone/repo/src/main/resources/alfresco/extension/license/
