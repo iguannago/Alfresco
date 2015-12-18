@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>share</artifactId>
     <name>Alfresco Share WAR Aggregator</name>
     <packaging>war</packaging>
-    <description>Alfresco Share aggregator, installs your Share AMPs in the Share WAR for aggregation and easy
-        deployment purposes
-    </description>
+    <description>Alfresco Share aggregator, installs your Share AMPs in the Share WAR for aggregation and easy deployment purposes</description>
 
     <parent>
         <groupId>com.getinthecloud</groupId>
@@ -24,155 +22,18 @@
     <dependencies>
 
         <!-- Pearson dependencies -->
-
-        <dependency>
-            <groupId>com.thetransactioncompany</groupId>
-            <artifactId>cors-filter</artifactId>
-            <version>2.1.2</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.thetransactioncompany</groupId>
-            <artifactId>java-property-utils</artifactId>
-            <version>1.9.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.alfresco.transformationserver</groupId>
-            <artifactId>alfresco-transformationserver-share</artifactId>
-            <version>1.5.1</version>
-            <type>amp</type>
-        </dependency>
-
-
-        <!-- Alfresco UNZIP add-on Share amp -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>alfresco-unzip_share</artifactId>
-            <version>5.0.1.1.2.8.0</version>
-            <type>amp</type>
-        </dependency>
-
-        <!-- Bulk Share AMP -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>bulk-share</artifactId>
-            <version>5.0.1.1.3.3.0</version>
-            <type>amp</type>
-        </dependency>
-
-        <!-- Custom Site Share AMP -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-site-share</artifactId>
-            <version>5.0.1.1.2.9.0</version>
-            <type>amp</type>
-        </dependency>
-
-        <!-- Save Search Share AMP -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>save-search-share</artifactId>
-            <version>5.0.1.1.5.0.0</version>
-            <type>amp</type>
-        </dependency>
-
-        <!-- base Content Model AMP for share.war -->
-        <dependency>
-            <groupId>com.pearson.ecm</groupId>
-            <artifactId>base-model-share</artifactId>
-            <version>5.0.1.1.0.2</version>
-            <type>amp</type>
-        </dependency>
-        <!-- leagacy Content Model AMP for share.war -->
-        <dependency>
-            <groupId>com.pearson.ecm</groupId>
-            <artifactId>legacy-model-share</artifactId>
-            <version>5.0.1.1.0.2</version>
-            <type>amp</type>
-        </dependency>
-
-        <!--  Custom Relationship AMP for share.war -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-relationships-share</artifactId>
-            <version>5.0.1.1.5.0.0</version>
-            <type>amp</type>
-        </dependency>
-
-        <!--  Custom Link AMP for share.war -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-link-share</artifactId>
-            <version>5.0.1.1.5.0.0</version>
-            <type>amp</type>
-        </dependency>
-
-
-        <!--  Custom Search AMP for share.war -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-search-share</artifactId>
-            <version>5.0.1.1.5.0.0</version>
-            <type>amp</type>
-        </dependency>
-
-
-        <!--  Checkout Checkin AMP for share.war -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-checkout-checkin-share</artifactId>
-            <version>5.0.1.1.3.1.3</version>
-            <type>amp</type>
-        </dependency>
-
-        <!--  Custom Life Cycle AMP for share.war -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-lifecycle-share</artifactId>
-            <version>5.0.1.1.3.3.3-SNAPSHOT</version>
-            <type>amp</type>
-        </dependency>
-
-        <!--  GTM AMP for share.war -->
         <!--<dependency>-->
             <!--<groupId>com.hcl.ecm</groupId>-->
-            <!--<artifactId>global-traffic-manager-share</artifactId>-->
-            <!--<version>5.0.1.1.0.0</version>-->
+            <!--<artifactId>custom-lifecycle-share</artifactId>-->
+            <!--<version>5.0.1.1.3.3.0-SNAPSHOT</version>-->
             <!--<type>amp</type>-->
         <!--</dependency>-->
-
-
-        <!-- Pearson Subscription AMP for share.war -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>pearson-subscription-master-share</artifactId>
-            <version>5.0.1.1.5.0.0</version>
-            <type>amp</type>
-        </dependency>
-
-        <!-- Pearson WIP Share Customizations AMP -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>pearson-wip-share</artifactId>
-            <version>5.0.1.1.5.0.0</version>
-            <type>amp</type>
-        </dependency>
-
-        <!-- Custom Group Share AMP -->
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-group-share</artifactId>
-            <version>5.0.1.1.3.2.1</version>
-            <type>amp</type>
-        </dependency>
-
-        <dependency>
-            <groupId>com.hcl.ecm</groupId>
-            <artifactId>custom-workflow-share</artifactId>
-            <version>5.0.1.1.0.14</version>
-            <type>amp</type>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.hcl.ecm</groupId>-->
+            <!--<artifactId>pearson-subscription-master-share</artifactId>-->
+            <!--<version>5.0.1.1.3.2.6-SNAPSHOT</version>-->
+            <!--<type>amp</type>-->
+        <!--</dependency>-->
 
         <!-- Alfresco dependencies -->
         <dependency>
@@ -219,139 +80,24 @@
                             <artifactId>${alfresco.share.artifactId}</artifactId>
                             <type>war</type>
                             <!-- To allow inclusion of META-INF -->
-                            <!-- To allow inclusion of META-INF -->
-                            <excludes>
-                            <!--web.xml has been updated after original alfresco.war was exploded
-                                so skip it -->
-                            <exclude>WEB-INF/web.xml</exclude>
-                            </excludes>
+                            <excludes/>
                         </overlay>
                         <!-- Add / sort your AMPs here -->
-                        <!-- Share Transformation Server AMP -->
                         <overlay>
-                            <groupId>org.alfresco.transformationserver</groupId>
-                            <artifactId>alfresco-transformationserver-share</artifactId>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>share-amp</artifactId>
                             <type>amp</type>
                         </overlay>
-
-
-                        <!-- Alfresco UNZIP add-on Repository amp -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>alfresco-unzip_share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- Custom Bulk Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>bulk-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <!-- Custom Site Share AMP-->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-site-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- Save Search Share AMP-->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>save-search-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- base Content Model AMP for share.war -->
-                        <overlay>
-                            <groupId>com.pearson.ecm</groupId>
-                            <artifactId>base-model-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <!-- leagacy Content Model AMP for share.war -->
-                        <overlay>
-                            <groupId>com.pearson.ecm</groupId>
-                            <artifactId>legacy-model-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- Workflow Share for Share AMP -->
-                        <!-- UPGRADE CODE REMOVED
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>pearson-workflow-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        -->
-
-                        <!-- Custom Relationship for Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-relationships-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <!-- Custom Link for Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-link-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <!-- Custom Search for Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-search-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- Custom Checkout Checkin for Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-checkout-checkin-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- Custom Life cycle for Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-lifecycle-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- GTM AMP for Share AMP -->
                         <!--<overlay>-->
                             <!--<groupId>com.hcl.ecm</groupId>-->
-                            <!--<artifactId>global-traffic-manager-share</artifactId>-->
+                            <!--<artifactId>custom-lifecycle-share</artifactId>-->
                             <!--<type>amp</type>-->
                         <!--</overlay>-->
-
-
-                        <!-- Pearson Subscription for Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>pearson-subscription-master-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-
-                        <!-- Pearson WIP Share Customizations AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>pearson-wip-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-
-                        <!-- Custom Group Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-group-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
-                        <!-- Custom Workflow Share AMP -->
-                        <overlay>
-                            <groupId>com.hcl.ecm</groupId>
-                            <artifactId>custom-workflow-share</artifactId>
-                            <type>amp</type>
-                        </overlay>
+                        <!--<overlay>-->
+                            <!--<groupId>com.hcl.ecm</groupId>-->
+                            <!--<artifactId>pearson-subscription-master-share</artifactId>-->
+                            <!--<type>amp</type>-->
+                        <!--</overlay>-->
                         <!-- Uncomment if you are using RM module -->
                         <!--
                         <overlay>
@@ -361,7 +107,6 @@
                         </overlay>
                         -->
                     </overlays>
-                    <containerConfigXML>src/main/META-INF/context.xml</containerConfigXML>
                 </configuration>
             </plugin>
         </plugins>
