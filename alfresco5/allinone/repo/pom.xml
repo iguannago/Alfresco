@@ -25,19 +25,36 @@
     </parent>
 
     <dependencies>
+
+        <!-- CORS Filter -->
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>cors-filter</artifactId>
+            <version>2.1.2</version>
+        </dependency>
+
+        <!-- Java Property Utility -->
+        <dependency>
+            <groupId>com.thetransactioncompany</groupId>
+            <artifactId>java-property-utils</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+
         <!-- Pearson dependencies -->
-        <!--<dependency>-->
-            <!--<groupId>com.hcl.ecm</groupId>-->
-            <!--<artifactId>custom-lifecycle-repo</artifactId>-->
-            <!--<version>5.0.1.1.3.3.0-SNAPSHOT</version>-->
-            <!--<type>amp</type>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.hcl.ecm</groupId>-->
-            <!--<artifactId>pearson-subscription-master-repo</artifactId>-->
-            <!--<version>5.0.1.1.3.2.6-SNAPSHOT</version>-->
-            <!--<type>amp</type>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.hcl.ecm</groupId>
+            <artifactId>custom-lifecycle-repo</artifactId>
+            <version>5.0.2.1.1.5.0.1-SNAPSHOT</version>
+            <type>amp</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hcl.ecm</groupId>
+            <artifactId>bulk-repo</artifactId>
+            <version>5.0.1.1.3.3.0</version>
+            <type>amp</type>
+        </dependency>
+
 
         <!-- Alfresco dependecies -->
 
@@ -94,7 +111,11 @@
                             <artifactId>${alfresco.repo.artifactId}</artifactId>
                             <type>war</type>
                             <!-- To allow inclusion of META-INF -->
-                            <excludes/>
+                            <excludes>
+                                <!--web.xml has been updated after original alfresco.war was exploded
+                                    so skip it -->
+                                <exclude>WEB-INF/web.xml</exclude>
+                            </excludes>
                         </overlay>
                         <!-- Add / sort your AMPs here -->
                         <overlay>
@@ -102,16 +123,19 @@
                             <artifactId>repo-amp</artifactId>
                             <type>amp</type>
                         </overlay>
-                        <!--<overlay>-->
-                            <!--<groupId>com.hcl.ecm</groupId>-->
-                            <!--<artifactId>custom-lifecycle-repo</artifactId>-->
-                            <!--<type>amp</type>-->
-                        <!--</overlay>-->
-                        <!--<overlay>-->
-                            <!--<groupId>com.hcl.ecm</groupId>-->
-                            <!--<artifactId>pearson-subscription-master-repo</artifactId>-->
-                            <!--<type>amp</type>-->
-                        <!--</overlay>-->
+                        <overlay>
+                            <groupId>com.hcl.ecm</groupId>
+                            <artifactId>custom-lifecycle-repo</artifactId>
+                            <type>amp</type>
+                        </overlay>
+
+                        <!-- Custom Bulk Repo AMP -->
+                        `<overlay>
+                            <groupId>com.hcl.ecm</groupId>
+                            <artifactId>bulk-repo</artifactId>
+                            <type>amp</type>
+                        </overlay>
+
                         <!-- Uncomment if you are using SPP -->
                         <!--
                         <overlay>
