@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.getinthecloud</groupId>
-    <artifactId>allinone</artifactId>
+    <groupId>com.getInTheCloud.activiti.workflow</groupId>
+    <artifactId>advanced-workflow</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Alfresco Repository and Share Quickstart with database and an embedded Tomcat runner.</name>
     <description>This All-in-One project allows to manage all the components involved in Alfresco development (Repo, Share, Solr4, AMPs) in one project
@@ -12,20 +12,20 @@
     <parent>
         <groupId>org.alfresco.maven</groupId>
         <artifactId>alfresco-sdk-parent</artifactId>
-        <version>2.1.0</version>
+        <version>2.2.0</version>
     </parent>
 
-    <!--
+    <!-- 
        SDK properties have sensible defaults in the SDK parent,
        but you can override the properties below to use another version.
        For more available properties see the alfresco-sdk-parent POM.
        -->
     <properties>
         <!-- The following are default values for data location, Alfresco Community version, and Records Management Module version.
-             Uncomment if you need to change (Note. current default version for Enterprise edition is 5.0.1)-->
-          <alfresco.version>5.0.2.1</alfresco.version>
-          <!--<alfresco.rm.version>2.3</alfresco.rm.version>-->
-          <!--<alfresco.data.location>alf_data_dev</alfresco.data.location> -->
+             Uncomment if you need to change (Note. current default version for Enterprise edition is 5.1)
+          <alfresco.version>5.1.e</alfresco.version>
+          <alfresco.rm.version>2.3</alfresco.rm.version>
+          <alfresco.data.location>/absolute/path/to/alf_data_dev</alfresco.data.location> -->
 
         <!-- This control the root logging level for all apps uncomment and change, defaults to WARN
             <app.log.root.level>WARN</app.log.root.level>
@@ -36,13 +36,27 @@
         <env>local</env>
         -->
 
-        <maven.tomcat.port>4578</maven.tomcat.port>
-
         <!-- The Alfresco Share web application is accessible via this URL -->
-        <share.client.url>http://localhost:4578/share</share.client.url>
-        <!--  Turn off auto-refresh of web applications -->
-        <maven.alfresco.refresh.mode>auto</maven.alfresco.refresh.mode>
+        <share.client.url>http://localhost:8080/share</share.client.url>
     </properties>
+
+    <dependencies>
+        <!-- If we are running tests then make the H2 Scripts available.
+             Note. tests are skipped when you are running -Prun -->
+        <dependency>
+            <groupId>${alfresco.groupId}</groupId>
+            <artifactId>alfresco-repository</artifactId>
+            <version>${alfresco.version}</version>
+            <classifier>h2scripts</classifier>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
 
     <!-- Here we realize the connection with the Alfresco selected platform (e.g.version and edition) -->
     <dependencyManagement>
@@ -83,16 +97,46 @@
              -->
             <id>run</id>
             <properties>
-                <!-- While running in rapid dev mode with -Prun, we don't want amp web resources
-                    to be added to the war, so we can load them directly from the AMP project (see
+                <!-- While running in rapid dev mode with -Prun, we don't want amp web resources 
+                    to be added to the war, so we can load them directly from the AMP project (see 
                     runner/tomcat/context-*.xml for more details) -->
                 <maven.alfresco.includeWebResources>false</maven.alfresco.includeWebResources>
             </properties>
         </profile>
+
+	<!-- if we're on a unix machine, chmod run.sh to be executable -->        
+        <profile>
+        	<id>chmod</id>
+        	<activation><os><family>unix</family></os></activation>
+        	<build>
+        		<plugins>
+		            <plugin>
+		              <groupId>org.codehaus.mojo</groupId>
+		              <artifactId>exec-maven-plugin</artifactId>
+		              <version>1.2.1</version>
+		              <inherited>false</inherited>
+		              <executions>
+		              	<execution>
+		              		<id>chmod</id>
+		              		<phase>validate</phase>
+		              		<goals><goal>exec</goal></goals>
+		              	</execution>
+		              </executions>
+		              <configuration>
+		              	<executable>chmod</executable>
+		              	<arguments>
+		              		<argument>+x</argument>
+		              		<argument>${basedir}/run.sh</argument>
+		              	</arguments>
+		              </configuration>
+		            </plugin>
+        		</plugins>
+        	</build>
+        </profile>
     </profiles>
   <modules>
-    <module>repo-amp</module>
-    <module>share-amp</module>
+    <module>advanced-workflow-repo-amp</module>
+    <module>advanced-workflow-share-amp</module>
     <module>repo</module>
     <module>solr-config</module>
     <module>share</module>
